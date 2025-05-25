@@ -19,25 +19,54 @@ So if one customer purchased product A and B together in past orders, next time 
 
 
 #### Research Question
-Analyse the historic transactioanl data of all the customers and the products they purchase in the last 4 years to build a Product recommender to enhance the business.
+Analyse the historic transactional data of all the customers and the products they purchase in the last 4 years to build a Product recommender to enhance the business.
+The raw data is clustered based on the revenue of the products. The Customer - Product Family is analysed to select the data block with Highest sales order value transactions is selected for the analysis to builkd the product recommender. Aggregated Order Values for Customer/Part Family pairs. 
 
 #### Data Sources
-The Data is an encripted data from a Business Organizations
+The Data is an encripted data from a Business Organizations. The data is pre-precessing includes data cleaning and data selection process. Data filtered to remove anomalous values and low frequency entries. Negative sale quantities, non integers and negative order values are removed.
 
 #### Methodology
-What methods are you using to answer the question?
+Block Clustering , Moving averges and Change Points are used for Data analysis Rare customers and Products are removed.
 
 #### Results
-What did your research find?
+Data selection process filters 30% of the data which filters the raws with higher order value based on hierarchical block clustering on matrix of aggregated Order Value, where rows represent Customer - and column represent Product Family.
 
 #### Next steps
-What suggestions do you have for next steps?
+Next Steps after Data Selection
+1. Product Trends Analysis
+2. Sales Decline Analysis
+3. Customer Similarity Analysis
+4. Total purchase Analysis
+
+Sales Decline Analysis + Customer Similarity Analysis + Total Purchase Analysis = > Leads to the Product Recommender.
+
+**Product Trends Analysis **
+   a) Products with simlar purchasing trends
+   b) Products with declining trends
+
+   Methodoloigies:
+   a) K-Shape Clustering 
+   b) Shape Based Distance(SBD)
+
+  ** Sales Decline Analysis**
+    a) Moving average for Sales declined Detection
+Pivoted Data for each customer - > Moving average, Guassian smoothing, Exponential Smoothing - > Slope Calculation for each Smoothed series 
+
+Find Highest Decline (Most negative slope)
+Normailize = Change vs historical mean
+   
+**Customer Similarity Analysis**
+a) Customer Sililarity - Chi squared distance
+b) Emperical Modeling wiht log Chi Squared Distance
+
+**Total purchase Analysis**
+a) Marcov Chain -m Stochastic Process describign the events
 
 #### Outline of project
 
-- [Link to notebook 1]()
-- [Link to notebook 2]()
-- [Link to notebook 3]()
+Here is the code used for initial analysis and fine Tuning the data to select the right cluster of transactions to be used to build the Product recommender system for Customers.
+
+Capstone_EDA.ipynb
 
 
 ##### Contact and Further Information
